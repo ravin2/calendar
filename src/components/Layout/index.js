@@ -32,7 +32,8 @@ const Layout = (props) => {
         </div>
         <div className="card2">
           {props.children}
-        </div>     
+        </div> 
+             
     </div>
   )
 }

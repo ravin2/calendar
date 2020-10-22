@@ -20,3 +20,39 @@
 .rewiring{
     margin-top: 22px;
 }
+
+.loginContainer {
+    /* width: 400px; */
+    /* position: relative; */
+    /* margin: 50px auto; */
+    width: 100%;
+    display: flex;
+    /* display: grid; */
+    /* grid-template-columns: 60% 40%;
+    grid-gap: 10px;
+    background-color:white; */
+}
+.login-btn {
+    background-color: #1fa17e;
+    color: white;
+    border-radius: 5px;
+    height: 50px;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 600;
+    border: #1fa17e;
+    border-radius: 10px !important;
+   margin-top: 20px;
+}
+
+.card2 {
+    padding-left: 82px;
+    padding-right: 82px;
+    padding-top: 50px;
+    width: 520px;
+}
+.card1{
+    float: left;
+    width: 800px;
+    height: 600px;
+}
