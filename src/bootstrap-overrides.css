@@ -1,0 +1,40 @@
+.btn-primary  {
+    width: 100% !important;
+}
+.row {
+    margin-left: 0px !important;
+}
+
+.form-check-input{
+    position: unset !important;
+    margin-right: 10px;
+}
+
+.form-check {
+    position: relative;
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 2px;
+}
+label {
+    display: inline-block;
+    margin-bottom: 3px !important;
+}
+
+.form-control{
+    height: 50px !important;
+    background-color: #f4f4f4 !important;
+    border-radius: 10px !important;
+    border: none !important;
+    padding-left: 45px;
+}
+
+.container {
+    padding: 0px;
+    max-width: 100%;
+}
+.col {
+    padding: 0px !important;
+}
