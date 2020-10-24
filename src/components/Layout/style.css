@@ -24,18 +24,8 @@
 }
 
 .loginContainer {
-    /* width: 400px; */
-    /* position: relative; */
-    /* margin: 50px auto; */
     width: 100%;
-    display: flex;
-    /* display: grid; */
-    /* grid-template-columns: 60% 40%;
-    grid-gap: 10px;
-    background-color:white; */
-    /* background-image: url('../../ASSETS/signup2.png'); */
-    height: 820px;
-
+    height: 100%;
 }
 .login-btn {
     background-color: #1fa17e;
@@ -51,15 +41,19 @@
 }
 
 .card2 {
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 50px;
-    width: 42%;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 30px;
+    width: 480px;
+    float: right;
+    background-color: #ffffff;
+    height: auto;
+    margin-top: 60px;
+    margin-right: 50px;
+    border-radius: 20px;
+    padding-bottom: 20px;
 }
-.card1{
-    float: left;
-    width: 58%;
-}
+
 
 
 /* @media only screen and (max-width: 1322px) and (min-width: 900px){

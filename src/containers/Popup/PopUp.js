@@ -123,7 +123,7 @@ const PopUp = (props) => {
                         </span>
                     </div> */}
                     <Basic onTitleChange={handleTitleChange} emails={emails}/>
-                    <div className="">
+                    <div className="starttime">
                             <Form.Group controlId="formBasicCheckbox">
                                 <Form.Check type="checkbox" label="Add Video Conferencing" 
                                 value={videoConferencing} 
@@ -131,18 +131,19 @@ const PopUp = (props) => {
                                 onChange={event => {
                                     onVideoConferencingChange(!videoConferencing);
                                 }}
-                            />
-                            </Form.Group>
-                          
-                            { videoConferencing ? 
+                                />
+                                { videoConferencing ? 
                                 <div>
                                     <a href={videoLink} rel="noopener noreferrer" target="_blank">{videoLink}</a>
                                 </div>
                                 : 
                                 <div></div>
                             }
+                            </Form.Group>
+                          
+                            
                     </div>
-                    <div>
+                    <div className="Event">
                         <h4>Event Description</h4>
                         <textarea style={style} rows="2" cols="100" 
                             value={description} 
@@ -153,8 +154,6 @@ const PopUp = (props) => {
                         ></textarea>
                     </div>
                     <div className="plan-button-popup">
-
-
                         { addPlan ? 
                             <div>
                                 <button onClick={() => {handleSubmit();handleTitleChange()}} >Add Plan</button>
