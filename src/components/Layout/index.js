@@ -13,12 +13,20 @@ const Layout = (props) => {
   if (props.children.props.className === 'login') { 
     console.log(props.children.props.className, 'login')
     var style = {
-        backgroundImage: `url(${loginImage})`
+        background: `url(${loginImage}) no-repeat center center fixed #000`,
+        webkitBackgroundsize: 'cover',
+        mozBackgroundSize: 'cover',
+        oBackgroundSize: 'cover',
+        backgroundSize: 'cover',
     }
   } else {
       console.log(props.children.props.className, 'signup')
     style = {
-        backgroundImage: `url(${signUpImage})`
+        background: `url(${signUpImage}) no-repeat center center fixed #000`,
+        webkitBackgroundsize: 'cover',
+        mozBackgroundSize: 'cover',
+        oBackgroundSize: 'cover',
+        backgroundSize: 'cover',
     }
   }
   
