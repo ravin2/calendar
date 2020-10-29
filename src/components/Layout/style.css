@@ -1,10 +1,12 @@
 .image-filter {
     filter: brightness(0.5);
+    height: 100% !important;
+    width: 100%;
 }
 
 .image-overlay{
-    position: absolute;
-    top: 585px;
+    position: fixed;
+    bottom: 13%;
     left:94px;
     font-family: sans-serif;
     font-size: 43px;
@@ -22,16 +24,9 @@
 }
 
 .loginContainer {
-    /* width: 400px; */
-    /* position: relative; */
-    /* margin: 50px auto; */
     width: 100%;
-    display: flex;
-    /* display: grid; */
-    /* grid-template-columns: 60% 40%;
-    grid-gap: 10px;
-    background-color:white; */
-}
+    height: 100%;overflow: auto;
+} 
 .login-btn {
     background-color: #1fa17e;
     color: white;
@@ -42,17 +37,57 @@
     font-weight: 600;
     border: #1fa17e;
     border-radius: 10px !important;
-   margin-top: 20px;
+    margin-top: 20px;
 }
 
 .card2 {
-    padding-left: 82px;
-    padding-right: 82px;
-    padding-top: 50px;
-    width: 520px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 30px;
+    width: 35%;
+    float: right;
+    background-color: #ffffff;
+    height: auto;
+    margin-top: 60px;
+    margin-right: 50px;
+    border-radius: 20px;
+    padding-bottom: 20px;
 }
-.card1{
-    float: left;
-    width: 800px;
-    height: 600px;
+
+
+
+/* @media only screen and (max-width: 1322px) and (min-width: 900px){
+    .infoPopup{
+      width: 85%;
+    }
+    .card2 {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 50px;
+        width: 45%;
+    }
+    .card1{
+        float: left;
+        width: 55%;
+    }
+    .image-overlay{
+        position: absolute;
+        top: 60%;
+    }
 }
+@media only screen and (max-width: 900px) and (min-width: 90px){
+    .infoPopup{
+      width: 85%;
+    }
+    .card2 {
+        width: 50%;
+        margin: auto;
+    }
+    .card1{
+       display: none;
+    }
+    .image-overlay{
+        position: absolute;
+        top: 60%;
+    }
+} */
