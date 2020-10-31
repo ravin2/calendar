@@ -329,12 +329,10 @@ import {  firestore } from 'firebase';
 import format from 'date-fns/format'
 import toolbar from './Toolbar/Toolbar';
 
-import Calend from 'react-widgets/lib/Calendar'
 
 
 
 const localizer = momentLocalizer(moment);
-const minilocalizer = momentLocalizer(moment);
 
 
 function Dashboard () {
