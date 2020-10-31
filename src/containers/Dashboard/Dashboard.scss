@@ -44,12 +44,11 @@
 }
 
 .Calender{
-   
-    width: 90%;
+    width: 100%;
     background-color: white;
-    margin: 20px auto;
-    padding: 20px;
-
+    // margin: 20px auto;
+    // padding: 20px;
+    // padding-top: 0px;
 }
 
 .popup{
@@ -130,12 +129,13 @@
 }
 .starttimepicker{
     float: right;
-    width: 250px;
+    width: 310px;
 }
 
 .starttime{
     height: 55px;
     padding-top: 10px;
+    margin-bottom: 15px;
 }
 
 .endtime{
@@ -146,9 +146,63 @@
 }
 
 .rbc-event{
-    background-color: green !important;
+    background-color: lightcyan !important;
+    color: currentColor !important;
 }
 .calender-dashboard{
-  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,233,223,1) 100%); 
+//   background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,233,223,1) 100%); 
   padding-bottom: 100px;
+}
+
+.rbc-month-view {
+    width: 98% !important;
+    margin-left: 1%!important;
+}
+
+.rbc-time-view {
+    width: 98% !important;
+    margin-left: 1% !important;
+}
+
+.rbc-toolbar{
+   height: 70px !important;
+   background-color: lightcyan;
+   margin-bottom: 20px;
+}
+.rbc-btn-group {
+    margin-left: 15%;
+}
+.btn-group {
+    margin-right: 15%;
+}
+
+.rbc-toolbar .rbc-toolbar-label {
+    flex-grow: 1 !important;
+    padding: 0px 32px !important;
+    text-align: center !important;
+    font-size: 20px;
+    font-weight: 500;
+
+}
+.back-btn {
+    background-color: white !important;
+    border: none !important;
+    border-radius: 20px !important;
+    margin-right: 10px !important;
+}
+
+// .rbc-btn-group-right {
+//     display: inline-block;
+//     white-space: nowrap;
+//     margin-right: 200px;
+// }
+
+.mini-calender{
+    position: absolute;
+    height: 100%;
+    top: 80px;
+    width: 300px;
+    margin-left: 9px;
+    width: 28%;
+    background-color: lightsalmon;
 }

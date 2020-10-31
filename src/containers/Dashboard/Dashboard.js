@@ -323,16 +323,17 @@ import parseISO from 'date-fns/parseISO'
 import "./Dashboard.scss";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import axios from '../../axios-order'
-import Layout from '../../components/Layout';
 
 import { useSelector } from 'react-redux';
 import {  firestore } from 'firebase';
 import format from 'date-fns/format'
-import Header from '../../components/Header/index';
+import toolbar from './Toolbar/Toolbar';
+
 
 
 
 const localizer = momentLocalizer(moment);
+
 
 function Dashboard () {
     const [events, setEvents] = useState([{
@@ -464,26 +465,33 @@ function Dashboard () {
 
     return (
       <div className="calender-dashboard">
-        <Header/>
+        {/* <Header/> */}
         <div className="Calender">
           <Calendar
             localizer={localizer}
             defaultDate={new Date()}
             defaultView="month"
-            views={['month', 'day', 'agenda', 'week',]}
+            views={['month', 'day', 'week',]}
             events={events}
-            style={{ height: "580px" }}
+            style={{ height: "90vh" }}
             onSelectEvent={ (evt) => { togglePop(evt)} }
             selectable={true}
             onSelectSlot={ (evt) => { togglePop(evt)} }
             popup={true}
+            components={{
+               toolbar: toolbar }
+              
+            }
           />
           {seen ? <PopUp data = { createEvent} delete={removeTask} update={updateEvent} submit = {addEvent} toggle={togglePopClose} /> : null}
         </div>
+        {/* <div className="mini-calender">
+         
+        </div> */}
       </div>
       
         
     );
-}
+}        
 
 export default Dashboard;

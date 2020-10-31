@@ -18,14 +18,16 @@
 }
 
 .menu{
-    display: flex;
-    margin: 23px;
-    font-size: 28px;
-    font-weight: normal;
+    font-size: 25px;
+    padding-top: 14px;
+    /* padding: 9px; */
+    padding-left: 35px;
+    padding-right: 35px;
+    color: black !important;
 }
 
 .menu > li > a{
-    color: #fff;
+    color: black;
     /* font-weight: bold; */
     text-shadow: 0 0;
     text-decoration: none;
