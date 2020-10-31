@@ -20,40 +20,17 @@ const Header = (props) => {
   // }
 
   return(
-    <header className="header">
-        <div style={{display: 'flex'}}>
-          <div className="logo">                <Image  src={require('../../ASSETS/img10.png')} fluid />   
-</div>
-            
-            {
-              !auth.authenticated ? 
-              <ul className="leftMenu">
-                <li><NavLink to={'/login'}>Login</NavLink></li>
-                <li><NavLink to={'/signup'}>Sign up</NavLink></li>
-              </ul> : null
-            }
-              
-
-            
-        </div>
-          <div style={{margin: '25px 0', color: '#fff', fontWeight: 'normal', fontSize: '28px'}}>
-            {auth.authenticated ? ` ${auth.firstName}'s Calender ` : ''}
-          </div>
+   
         <ul className="menu">
-
             {
               auth.authenticated ?
               <li>
                 <Link to={'#'} onClick={() => {
                   dispatch(logout(auth.uid))
                 }}>Logout</Link>
-            </li> : null
-            }
-          
-            
-             
+              </li> : null
+            } 
         </ul>
-    </header>
    )
 
  }

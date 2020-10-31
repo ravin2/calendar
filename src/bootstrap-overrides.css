@@ -38,3 +38,11 @@ label {
 .col {
     padding: 0px !important;
 }
+
+.rbc-today {
+    background-color: lightcyan !important;
+}
+
+.rbc-current{
+    /* color: white!important; */
+}
