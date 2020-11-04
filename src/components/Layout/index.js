@@ -11,7 +11,6 @@ import signUpImage from '../../ASSETS/altof-signup-image.png';
 
 const Layout = (props) => {
   if (props.children.props.className === 'login') { 
-    console.log(props.children.props.className, 'login')
     var style = {
         background: `url(${loginImage}) no-repeat center center fixed #000`,
         WebkitBackgroundsize: 'cover',
