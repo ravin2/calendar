@@ -13,7 +13,6 @@
     color: #fff;
     text-transform: capitalize;
     font-weight: bold;
-    margin: 18px;
     text-shadow: 0 0;
 }
 
@@ -25,9 +24,8 @@
     color: black !important;
 }
 
-.menu > li > a{
-    color: black;
-    /* font-weight: bold; */
+.logout-popup > a{
+    font-weight: bold;
     text-shadow: 0 0;
     text-decoration: none;
 }
@@ -42,10 +40,53 @@
     margin: 0 10px;
 }
 
-.leftMenu > li > a{
-    color: #fff;
+.logout-popup > a{
+    color: black;
+}
+.logout-popup > a:hover{
+    color: black;
+    text-decoration: none;
+
 }
 
-.leftMenu > li > a.active{
+.logout-popup > a.active{
     font-weight: bold;
 }
+
+.profile-icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    margin: auto;
+    margin-top: -6px;
+    padding-top: 12px;
+    padding-left: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.logout-popup{
+    padding: 25px;
+    width: 200px;
+    box-shadow: 2px 2px rgba(0,0,0,0.1);
+    height: 80px;
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+    top: 60px;
+    right: 50px;
+    z-index: 100;
+}
+.logout-popup:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+    top: -20px;
+    left: auto;
+    right: 25px;
+  }

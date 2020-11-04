@@ -410,7 +410,7 @@ function Dashboard () {
         user: element
     }
 
-    axios.post('http://api.altof.io:4000/getDetails', emailBody )
+    axios.post('http://calendar.altof.io:4002/getDetails', emailBody )
         .then( response => {
             console.log(response)
         } )

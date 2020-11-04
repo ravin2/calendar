@@ -165,16 +165,14 @@
 }
 
 .rbc-toolbar{
-   height: 70px !important;
+//    height: 70px !important;
    background-color: lightcyan;
    margin-bottom: 20px;
+   display: inline-block !important;
+   width: 80%;
+   text-align: center !important;
 }
-.rbc-btn-group {
-    margin-left: 15%;
-}
-.btn-group {
-    margin-right: 15%;
-}
+
 
 .rbc-toolbar .rbc-toolbar-label {
     flex-grow: 1 !important;
@@ -205,4 +203,7 @@
     margin-left: 9px;
     width: 28%;
     background-color: lightsalmon;
+}
+.rbc-header {
+    z-index: 1 !important;
 }

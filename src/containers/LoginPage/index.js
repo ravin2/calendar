@@ -48,7 +48,7 @@ const LoginPage = (props) => {
     <Layout>
         <div className="login">
           <div className="icon-heading">
-            <Image src={require('../../ASSETS/logoblack.png')} fluid />  
+            <Image src={require('../../ASSETS/logo-login.png')} fluid />  
           </div>
           <h3 className="login-heading">Login</h3>
           <form onSubmit={userLogin}>

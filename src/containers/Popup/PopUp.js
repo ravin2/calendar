@@ -3,7 +3,7 @@ import './popup.css';
 import Form from 'react-bootstrap/Form';
 import format from 'date-fns/format'
 import Basic from '../../Email'
-import SearchLocationInput from '../../Gplace'
+// import SearchLocationInput from '../../Gplace'
 
 
 const PopUp = (props) => {
@@ -27,7 +27,7 @@ const PopUp = (props) => {
     const [emails, setEmails] = useState(props.data.contacts);
     const [title, setTitle] = useState(titlee);
     const [videoLink] = useState(link);
-    const [location, setLocation] = useState(props.data.location);
+    const [location] = useState(props.data.location);
 
     function handleClick () {
         props.toggle();
@@ -50,9 +50,9 @@ const PopUp = (props) => {
     function handleTitleChange(evt) {
         setEmails(evt);
     }
-    function handleLocationChange(evt) {
-        setLocation(evt);
-    }
+    // function handleLocationChange(evt) {
+    //     setLocation(evt);
+    // }
     
     function handleDelete() {
         props.delete(props.data.id);

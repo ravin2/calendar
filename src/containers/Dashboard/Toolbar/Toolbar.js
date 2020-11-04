@@ -16,37 +16,42 @@ class Toolbar extends React.Component {
     } = this.props
 
     return (
-      <div className="rbc-toolbar">
-      <div className="logo">                
-      <Image  src={require('../../../ASSETS/logo-head1.png')} fluid />   
-      </div>
-        <span className="rbc-btn-group">
-        <button className="back-btn"
-            type="button"
-            onClick={this.navigate.bind(null, navigate.PREVIOUS)}
-          >
-            &lt;          
-        </button>
-           <button className="back-btn"
-            type="button"
-            onClick={this.navigate.bind(null, navigate.TODAY)}
-          >
-            {messages.today}
-          </button>
-          <button className="back-btn"
-            type="button"
-            onClick={this.navigate.bind(null, navigate.NEXT)}
-          >
-            {">"}
-          </button>
-        </span>
+      <div className="toolbar">
+          <span className="logo">                
+          <Image  src={require('../../../ASSETS/logo-head1.png')} fluid />   
+          </span>
+        <span className="rbc-toolbar">
+          
+            <span className="rbc-btn-group">
+            <button className="back-btn"
+                type="button"
+                onClick={this.navigate.bind(null, navigate.PREVIOUS)}
+              >
+                &lt;          
+            </button>
+              <button className="back-btn"
+                type="button"
+                onClick={this.navigate.bind(null, navigate.TODAY)}
+              >
+                {messages.today}
+              </button>
+              <button className="back-btn"
+                type="button"
+                onClick={this.navigate.bind(null, navigate.NEXT)}
+              >
+                {">"}
+              </button>
+            </span>
 
-        <span className="rbc-toolbar-label">{label}</span>
-        <span className="btn-group">{this.viewNamesGroup(messages)}</span>
-        <span>
-            <Header/>
-        </span>
+            <span className="rbc-label">{label}</span>
+            <span className="btn-group">{this.viewNamesGroup(messages)}</span>
+            
+          </span>
+          <span className='profile'>
+                <Header/>
+          </span>
       </div>
+      
     )
   }
 
