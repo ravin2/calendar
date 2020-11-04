@@ -44,7 +44,7 @@ const RegisterPage = (props) => {
       <div className="signup">
          <form onSubmit={registerUser}>
             <div className="icon-heading">
-            <Image src={require('../../ASSETS/logoblack.png')} fluid />  
+            <Image src={require('../../ASSETS/logo-login.png')} fluid />  
           </div>
           <h3 className="login-heading">Sign up</h3>
           <Form.Group controlId='time'>

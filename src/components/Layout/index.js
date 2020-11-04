@@ -14,19 +14,19 @@ const Layout = (props) => {
     console.log(props.children.props.className, 'login')
     var style = {
         background: `url(${loginImage}) no-repeat center center fixed #000`,
-        webkitBackgroundsize: 'cover',
-        mozBackgroundSize: 'cover',
-        oBackgroundSize: 'cover',
+        WebkitBackgroundsize: 'cover',
+        MozBackgroundSize: 'cover',
+        OBackgroundSize: 'cover',
         backgroundSize: 'cover',
     }
   } else {
       console.log(props.children.props.className, 'signup')
     style = {
         background: `url(${signUpImage}) no-repeat center center fixed #000`,
-        webkitBackgroundsize: 'cover',
-        mozBackgroundSize: 'cover',
-        oBackgroundSize: 'cover',
-        backgroundSize: 'cover',
+        WebkitBackgroundsize: 'cover',
+        MozBackgroundSize: 'cover',
+        OBackgroundSize: 'cover',
+        BackgroundSize: 'cover',
     }
   }
   
@@ -36,12 +36,12 @@ const Layout = (props) => {
            {props.children}
         </div>  
         <div className="image-overlay">
-              <div>
-                 <Image  src={require('../../ASSETS/img10.png')} fluid />   
-               </div>
-               <div className="rewiring">
+              <span>
+                 <Image  src={require('../../ASSETS/logo-white.png')} fluid />   
+               </span>
+               <span className="rewiring">
                  Rewiring Work
-               </div>
+               </span>
          </div>
     </div>
     // <div className="image-overlay">
