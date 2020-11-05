@@ -25,7 +25,7 @@ const Layout = (props) => {
         WebkitBackgroundsize: 'cover',
         MozBackgroundSize: 'cover',
         OBackgroundSize: 'cover',
-        BackgroundSize: 'cover',
+        backgroundSize: 'cover',
     }
   }
   

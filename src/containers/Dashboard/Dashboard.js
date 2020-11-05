@@ -409,6 +409,7 @@ function Dashboard () {
         message: "Hello World",
         user: element
     }
+    console.log(evt, element, 'email')
 
     axios.post('http://calendar.altof.io:4002/getDetails', emailBody )
         .then( response => {
