@@ -312,6 +312,192 @@
 // export default Dashboard;
 
 
+////////////////////////////////New Timpicker
+
+
+// import React, { useState } from "react";
+// import { Calendar, momentLocalizer } from "react-big-calendar";
+// import moment from "moment";
+// import PopUp from "../Popup/PopUp"; 
+// import parseISO from 'date-fns/parseISO'
+
+// import "./Dashboard.scss";
+// import "react-big-calendar/lib/css/react-big-calendar.css";
+// import axios from '../../axios-order'
+
+// import { useSelector } from 'react-redux';
+// import {  firestore } from 'firebase';
+// import format from 'date-fns/format'
+// import toolbar from './Toolbar/Toolbar';
+
+
+
+
+// const localizer = momentLocalizer(moment);
+
+
+// function Dashboard () {
+//     const [events, setEvents] = useState([{
+//         start: parseISO('2020-10-07T01:00'),
+//         end: parseISO('2020-10-07T02:00'),
+//         title: "Some title",
+//         seen: false,
+//         contacts:['qweqwewq@aads.com']
+//       }]);
+//     const [createEvent, setCreateEvent] = useState()
+//     const [seen, setSeen] = useState(false)
+//     const auth = useSelector(state => state.auth);
+//     const db = firestore();
+
+        
+//   React.useEffect(() => {
+//     getDetails();
+//     },[]
+//   );
+
+//   async function getDetails() {
+//     if ( auth.uid !== undefined) {
+//           const cityRef =  await db.collection('users').doc(auth.uid).collection('Events').get();
+//           const data =  cityRef.docs.map(doc => doc.data());
+//           if (!data) {
+//             console.log('No such document!');
+//           } else {
+//           data.forEach((element,i) => {
+//             element.start = parseISO(element.start)
+//             element.end = parseISO(element.end)
+//           });
+//           setEvents(data);
+//         }
+//     }
+//   }
+
+
+//   function togglePop (evt)  {
+//     setCreateEvent(evt);
+//     setSeen(true)
+//   };
+//   function togglePopClose() {
+//         setSeen(false);
+//   }
+
+//   function addEvent (evt) {
+//     setSeen(false);
+//     const id = Math.random().toString();
+//     db.collection('users').doc(auth.uid).collection('Events').doc(id).set(
+//       {
+//         name: 'Ravindra',
+//         start: (evt.startTime),
+//         end: (evt.endTime),
+//         title: evt.title,
+//         description: evt.description,
+//         contacts: evt.emails,
+//         videoCall: evt.videoConferencing,
+//         id: id,
+//         videoLink: evt.videoLink
+//     })
+//     .then(() => {
+//         console.log('success')
+//     })
+//     .catch(error => {
+//         console.log(error);
+//     });
+    
+//     evt.emails.forEach(element => {
+//       const emailBody  = {
+//         ids: element,
+//         start_time: format(parseISO(evt.startTime), "yyyy-MM-dd' T 'HH:mm"),
+//         end_time: format(parseISO(evt.endTime), "yyyy-MM-dd' T 'HH:mm"),
+//         message: "Hello World",
+//         user: element
+//     }
+//     console.log(evt, element, 'email')
+
+//     axios.post('http://calendar.altof.io:4002/getDetails', emailBody )
+//         .then( response => {
+//             console.log(response)
+//         } )
+//         .catch( error => {
+//             console.log('fail', error)
+//     } ); 
+
+
+//     });
+
+//     getDetails();
+//     setSeen(false);
+    
+//   };
+  
+//   async function updateEvent (evt,id) {
+//     db.collection('users').doc(auth.uid).collection('Events').doc(id).update(
+//       {
+//         name: 'Ravindra',
+//         start: (evt.startTime),
+//         end: (evt.endTime),
+//         title: evt.title,
+//         description: evt.description,
+//         contacts: evt.emails,
+//         videoCall: evt.videoConferencing,
+//         id: id,
+//         videoLink: evt.videoLink
+//     })
+//     .then(() => {
+//         console.log('success')
+//     })
+//     .catch(error => {
+//         console.log(error);
+//     });
+//     getDetails();
+//     setSeen(false);
+  
+//   };
+
+    
+
+
+//   async function removeTask(id) {
+//     await db.collection('users').doc(auth.uid).collection('Events').doc(id).delete().then(function() {
+//     }).catch(function(error) {
+//         console.error("Error removing document: ", error);
+//     });
+//     getDetails();
+//     setSeen(false);
+//   }
+  
+
+//     return (
+//       <div className="calender-dashboard">
+//         {/* <Header/> */}
+//         <div className="Calender">
+//           <Calendar
+//             localizer={localizer}
+//             defaultDate={new Date()}
+//             defaultView="month"
+//             views={['month', 'day', 'week',]}
+//             events={events}
+//             style={{ height: "85vh" }}
+//             onSelectEvent={ (evt) => { togglePop(evt)} }
+//             selectable={true}
+//             onSelectSlot={ (evt) => { togglePop(evt)} }
+//             popup={true}
+//             components={{
+//                toolbar: toolbar }
+              
+//             }
+//           />
+//           {seen ? <PopUp data = { createEvent} delete={removeTask} update={updateEvent} submit = {addEvent} toggle={togglePopClose} /> : null}
+//         </div>
+//         {/* <div className="mini-calender">
+         
+//         </div> */}
+//       </div>
+      
+        
+//     );
+// }        
+
+// export default Dashboard;
+
 
 
 import React, { useState } from "react";
@@ -337,8 +523,8 @@ const localizer = momentLocalizer(moment);
 
 function Dashboard () {
     const [events, setEvents] = useState([{
-        start: parseISO('2020-10-07T01:00'),
-        end: parseISO('2020-10-07T02:00'),
+        start: parseISO('2020-11-07T01:00'),
+        end: parseISO('2020-11-07T02:00'),
         title: "Some title",
         seen: false,
         contacts:['qweqwewq@aads.com']
@@ -362,9 +548,10 @@ function Dashboard () {
             console.log('No such document!');
           } else {
           data.forEach((element,i) => {
-            element.start = parseISO(element.start)
+             element.start = parseISO(element.start)
             element.end = parseISO(element.end)
           });
+          console.log(data,'list')
           setEvents(data);
         }
     }
@@ -382,11 +569,12 @@ function Dashboard () {
   function addEvent (evt) {
     setSeen(false);
     const id = Math.random().toString();
+    console.log(evt, typeof evt.startTime , 'add')
     db.collection('users').doc(auth.uid).collection('Events').doc(id).set(
       {
         name: 'Ravindra',
-        start: (evt.startTime),
-        end: (evt.endTime),
+        start: format(evt.startTime, "yyyy-MM-dd'T'HH:mm"),
+        end: format(evt.endTime, "yyyy-MM-dd'T'HH:mm"),
         title: evt.title,
         description: evt.description,
         contacts: evt.emails,
@@ -401,26 +589,26 @@ function Dashboard () {
         console.log(error);
     });
     
-    evt.emails.forEach(element => {
-      const emailBody  = {
-        ids: element,
-        start_time: format(parseISO(evt.startTime), "yyyy-MM-dd' T 'HH:mm"),
-        end_time: format(parseISO(evt.endTime), "yyyy-MM-dd' T 'HH:mm"),
-        message: "Hello World",
-        user: element
-    }
-    console.log(evt, element, 'email')
+    // evt.emails.forEach(element => {
+    //   const emailBody  = {
+    //     ids: element,
+    //     start_time: format(parseISO(evt.startTime), "yyyy-MM-dd' T 'HH:mm"),
+    //     end_time: format(parseISO(evt.endTime), "yyyy-MM-dd' T 'HH:mm"),
+    //     message: "Hello World",
+    //     user: element
+    // }
+    // console.log(evt, element, 'email')
 
-    axios.post('http://calendar.altof.io:4002/getDetails', emailBody )
-        .then( response => {
-            console.log(response)
-        } )
-        .catch( error => {
-            console.log('fail', error)
-    } ); 
+    // axios.post('http://calendar.altof.io:4002/getDetails', emailBody )
+    //     .then( response => {
+    //         console.log(response)
+    //     } )
+    //     .catch( error => {
+    //         console.log('fail', error)
+    // } ); 
 
 
-    });
+    // });
 
     getDetails();
     setSeen(false);
@@ -431,8 +619,8 @@ function Dashboard () {
     db.collection('users').doc(auth.uid).collection('Events').doc(id).update(
       {
         name: 'Ravindra',
-        start: (evt.startTime),
-        end: (evt.endTime),
+        start: format(evt.startTime, "yyyy-MM-dd'T'HH:mm"),
+        end: format(evt.endTime, "yyyy-MM-dd'T'HH:mm"),
         title: evt.title,
         description: evt.description,
         contacts: evt.emails,
@@ -474,17 +662,18 @@ function Dashboard () {
             defaultView="month"
             views={['month', 'day', 'week',]}
             events={events}
-            style={{ height: "90vh" }}
+            style={{ height: "85vh" }}
             onSelectEvent={ (evt) => { togglePop(evt)} }
             selectable={true}
             onSelectSlot={ (evt) => { togglePop(evt)} }
             popup={true}
-            components={{
-               toolbar: toolbar }
-              
+            components={
+              {
+               toolbar: toolbar
+              }
             }
           />
-          {seen ? <PopUp data = { createEvent} delete={removeTask} update={updateEvent} submit = {addEvent} toggle={togglePopClose} /> : null}
+          {seen ? <PopUp data = {createEvent} delete={removeTask} update={updateEvent} submit = {addEvent} toggle={togglePopClose} /> : null}
         </div>
         {/* <div className="mini-calender">
          

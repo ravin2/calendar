@@ -80,9 +80,6 @@
 .popup-date{
     font-size: 20px;
     font-weight: 500;
-    padding-bottom: 12px;
-    border-bottom: 1px solid;
-    margin-bottom: 20px;
 }
 .Plan-label{
      text-align: center;
@@ -129,13 +126,23 @@
 }
 .starttimepicker{
     float: right;
-    width: 310px;
+    width: 100%;
+    border-bottom: 1px solid black;
+    input {
+        
+        border: none;
+        width: 100%;
+        font-size: 24px;
+        color: grey;
+        margin-bottom: 2px;
+        padding-left: 25px;
+    }
 }
 
 .starttime{
     height: 55px;
     padding-top: 10px;
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
 }
 
 .endtime{

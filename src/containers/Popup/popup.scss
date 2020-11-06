@@ -11,22 +11,34 @@
     background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
     -webkit-backdrop-filter: blur(3.5px);
     backdrop-filter: blur(3.5px);
+    .form-control{
+        height: 50px !important;
+        background-color:  white !important;
+        border-radius: 10px !important;
+        border: none !important;
+        padding-left: 0px;
+    }
 }
 .popupContent{
     background-color: white;
-    width: 460px;
+    width: 560px;
     min-height: auto;
     border-radius: 10px;
     margin: 0px auto;
-    padding: 20px;
     padding-bottom: 45px;
     margin-bottom: 20px;
 }
+.form-content{
+    padding: 20px;
+}
 
-
+.popup-header{
+    background-color: lightcyan;
+    padding: 15px;
+}
 .plan-button-popup > div >  button {
-    background-color: #ea2150;
-    color: white;
+    background-color:  lightcyan;
+    color: black;
     border-radius: 5px;
     height: 40px;
     width: 90px;
@@ -132,9 +144,51 @@
 }
 
 .react-multi-email [data-tag] {
-    background-color: green !important;
-    color: white !important;
+    background-color: lightcyan !important;
+    color: black !important;
 }
 .Event{
     margin-top: 10px;
+    margin-bottom: 15px;
+}
+.timeleft{
+    width: 49%;
+    float: left;
+    input {
+        border: none;
+        width: 250px;
+        text-align: center;
+    }
+}
+.timeright{
+    width: 49%;
+    float: right;
+    input {
+        border: none;
+        width: 250px;
+        text-align: center;
+    }
+}
+
+.react-multi-email{
+    border: none !important;
+    margin-left: 15px !important;
+}
+
+.react-multi-email > span[data-placeholder] {
+   color: #000 !important;
+   font-weight: 700;
+}
+
+.quill {
+    margin-left: 22px;
+    margin-top: -25px;
+    background-color: #f7f7f7;
+}
+
+.ql-toolbar.ql-snow {
+    border: none !important;
+}
+.ql-container.ql-snow {
+    border: none !important;
 }

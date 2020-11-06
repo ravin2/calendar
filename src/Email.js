@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { ReactMultiEmail } from 'react-multi-email';
 import 'react-multi-email/style.css';
+import Image from 'react-bootstrap/Image'
 
 interface IProps {}
 interface IState {
@@ -15,9 +16,9 @@ class Basic extends React.Component<IProps, IState> {
     const { emails } = this.state;
     return (
       <>
-          <h3>Add contacts</h3>
+          {/* <h3>Add contacts</h3> */}
           <ReactMultiEmail
-            placeholder="Input your email"
+            placeholder="Add Guests"
             emails={emails}
             onChange={(_emails: string[]) => {
               this.setState({ emails: _emails });
@@ -41,6 +42,9 @@ class Basic extends React.Component<IProps, IState> {
             }}
           />
           <br />
+           <span style={{ position:'relative', top: '-56px', left: '-5px' }}>
+                                        <Image className="icon" src={require('./ASSETS/at.png')} fluid />   
+          </span>
       </>
     );
   }
