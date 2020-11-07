@@ -237,9 +237,9 @@ const PopUp = (props) => {
         link = props.data.videoLink;
         titlee = props.data.title;
     }
-
     var startTimeing = new Date(props.data.start);
-    var endTimeing = new Date(props.data.end);
+    var endTimeing = new Date(props.data.end).setHours(new Date(props.data.end).getHours() + 24);
+    console.log(startTimeing, endTimeing)
 
     const [startTime, onStartTimeChange] = useState(startTimeing);
     const [endTime, onEndTimeChange] = useState(endTimeing);
@@ -411,9 +411,9 @@ const PopUp = (props) => {
         </div>
    </div>
   );
- }
+}
 
- export default PopUp ;
+export default PopUp ;
 
 
  

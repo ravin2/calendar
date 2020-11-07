@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React , { useState } from 'react'
 import clsx from 'clsx'
 import { navigate } from '../../utils/constants'
 import Image from 'react-bootstrap/Image'
 import Header from '../../../components/Header/index';
 import "./toolbar.css";
+import DatePicker from "react-datepicker";
+ 
+import "react-datepicker/dist/react-datepicker.css";
 
 class Toolbar extends React.Component {
   render() {
@@ -17,8 +20,9 @@ class Toolbar extends React.Component {
 
     return (
       <div className="toolbar">
+          
           <span className="logo">                
-          <Image  src={require('../../../ASSETS/logo-head1.png')} fluid />   
+            <Image  src={require('../../../ASSETS/logo-head1.png')} fluid />   
           </span>
         <span className="rbc-toolbar">
           
@@ -81,6 +85,7 @@ class Toolbar extends React.Component {
     }
   }
 }
+
 
 Toolbar.propTypes = {
   view: PropTypes.string.isRequired,

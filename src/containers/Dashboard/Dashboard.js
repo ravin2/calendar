@@ -513,10 +513,16 @@ import axios from '../../axios-order'
 import { useSelector } from 'react-redux';
 import {  firestore } from 'firebase';
 import format from 'date-fns/format'
-import toolbar from './Toolbar/Toolbar';
+import toolbar  from './Toolbar/Toolbar';
+import Image from 'react-bootstrap/Image'
+import Button from 'react-bootstrap/Button'
 
 
 
+
+import DatePicker from "react-datepicker";
+ 
+import "react-datepicker/dist/react-datepicker.css";
 
 const localizer = momentLocalizer(moment);
 
@@ -533,6 +539,8 @@ function Dashboard () {
     const [seen, setSeen] = useState(false)
     const auth = useSelector(state => state.auth);
     const db = firestore();
+    const [startDate, setStartDate] = useState(new Date());
+
 
         
   React.useEffect(() => {
@@ -658,15 +666,17 @@ function Dashboard () {
         <div className="Calender">
           <Calendar
             localizer={localizer}
-            defaultDate={new Date()}
+            date={startDate}
             defaultView="month"
             views={['month', 'day', 'week',]}
             events={events}
-            style={{ height: "85vh" }}
-            onSelectEvent={ (evt) => { togglePop(evt)} }
+            style={{ height: "89vh" }}
+            onSelectEvent={ (evt) => { togglePop(evt); console.log(evt)} }
             selectable={true}
-            onSelectSlot={ (evt) => { togglePop(evt)} }
+            onSelectSlot={ (evt) => { togglePop(evt);console.log(evt)} }
             popup={true}
+            selected = {startDate}
+            onNavigate = {(evt) => { setStartDate(evt)}}
             components={
               {
                toolbar: toolbar
@@ -675,9 +685,24 @@ function Dashboard () {
           />
           {seen ? <PopUp data = {createEvent} delete={removeTask} update={updateEvent} submit = {addEvent} toggle={togglePopClose} /> : null}
         </div>
-        {/* <div className="mini-calender">
-         
-        </div> */}
+        <div className="mini-calender">
+          
+          <div className="bt">
+            <Image  src={require('../../ASSETS/at2.png')} fluid />   
+            <span className="taskheading"> Task Schedular </span>
+            <button className="btn" type="button" onClick={() => {setStartDate(new Date())}}>Today</button>
+            <button className="btn" type="button" onClick={() => {togglePop({start:startDate,end:startDate})}}>Schedule +</button>
+          </div>
+          
+          <div className="calendar-col">
+            <DatePicker
+              selected={startDate}
+              onChange={
+                date =>  { setStartDate(date); console.log(date)}}
+              inline
+            />
+          </div>
+        </div>
       </div>
       
         
