@@ -515,7 +515,7 @@ import {  firestore } from 'firebase';
 import format from 'date-fns/format'
 import toolbar  from './Toolbar/Toolbar';
 import Image from 'react-bootstrap/Image'
-import Button from 'react-bootstrap/Button'
+// import Button from 'react-bootstrap/Button'
 
 
 
@@ -549,8 +549,8 @@ function Dashboard () {
   );
 
   async function getDetails() {
-    if ( auth.uid !== undefined) {
-          const cityRef =  await db.collection('users').doc(auth.uid).collection('Events').get();
+    if ( auth.emailid !== undefined) {
+          const cityRef =  await db.collection('users').doc(auth.emailid).collection('Events').get();
           const data =  cityRef.docs.map(doc => doc.data());
           if (!data) {
             console.log('No such document!');
@@ -577,8 +577,7 @@ function Dashboard () {
   function addEvent (evt) {
     setSeen(false);
     const id = Math.random().toString();
-    console.log(evt, typeof evt.startTime , 'add')
-    db.collection('users').doc(auth.uid).collection('Events').doc(id).set(
+    db.collection('users').doc(auth.emailid).collection('Events').doc(id).set(
       {
         name: 'Ravindra',
         start: format(evt.startTime, "yyyy-MM-dd'T'HH:mm"),
@@ -597,26 +596,26 @@ function Dashboard () {
         console.log(error);
     });
     
-    // evt.emails.forEach(element => {
-    //   const emailBody  = {
-    //     ids: element,
-    //     start_time: format(parseISO(evt.startTime), "yyyy-MM-dd' T 'HH:mm"),
-    //     end_time: format(parseISO(evt.endTime), "yyyy-MM-dd' T 'HH:mm"),
-    //     message: "Hello World",
-    //     user: element
-    // }
-    // console.log(evt, element, 'email')
+    evt.emails.forEach(element => {
+      const emailBody  = {
+        ids: element,
+        start_time: new Date(evt.startTime),
+        end_time:  new Date(evt.endTime),
+        message: "Hello World",
+        user: auth.firstName
+      }
+    console.log(evt, element, 'email')
 
-    // axios.post('http://calendar.altof.io:4002/getDetails', emailBody )
-    //     .then( response => {
-    //         console.log(response)
-    //     } )
-    //     .catch( error => {
-    //         console.log('fail', error)
-    // } ); 
+    axios.post('/getDetails', emailBody )
+        .then( response => {
+            console.log(response)
+        } )
+        .catch( error => {
+            console.log('fail', error)
+    } ); 
 
 
-    // });
+    });
 
     getDetails();
     setSeen(false);
@@ -624,7 +623,7 @@ function Dashboard () {
   };
   
   async function updateEvent (evt,id) {
-    db.collection('users').doc(auth.uid).collection('Events').doc(id).update(
+    db.collection('users').doc(auth.emailid).collection('Events').doc(id).update(
       {
         name: 'Ravindra',
         start: format(evt.startTime, "yyyy-MM-dd'T'HH:mm"),
@@ -642,6 +641,28 @@ function Dashboard () {
     .catch(error => {
         console.log(error);
     });
+    evt.emails.forEach(element => {
+      const emailBody  = {
+        ids: element,
+        start_time: new Date(evt.startTime),
+        end_time:  new Date(evt.endTime),
+        message: "Hello World",
+        user: auth.firstName
+      }
+    console.log(evt, element, 'email')
+
+    axios.post('/getDetails', emailBody )
+        .then( response => {
+            console.log(response)
+        } )
+        .catch( error => {
+            console.log('fail', error)
+    } ); 
+
+
+    });
+    
+    
     getDetails();
     setSeen(false);
   
@@ -651,7 +672,7 @@ function Dashboard () {
 
 
   async function removeTask(id) {
-    await db.collection('users').doc(auth.uid).collection('Events').doc(id).delete().then(function() {
+    await db.collection('users').doc(auth.emailid).collection('Events').doc(id).delete().then(function() {
     }).catch(function(error) {
         console.error("Error removing document: ", error);
     });
@@ -671,9 +692,9 @@ function Dashboard () {
             views={['month', 'day', 'week',]}
             events={events}
             style={{ height: "89vh" }}
-            onSelectEvent={ (evt) => { togglePop(evt); console.log(evt)} }
+            onSelectEvent={ (evt) => { togglePop(evt);} }
             selectable={true}
-            onSelectSlot={ (evt) => { togglePop(evt);console.log(evt)} }
+            onSelectSlot={ (evt) => { togglePop(evt)} }
             popup={true}
             selected = {startDate}
             onNavigate = {(evt) => { setStartDate(evt)}}
@@ -700,6 +721,7 @@ function Dashboard () {
               onChange={
                 date =>  { setStartDate(date); console.log(date)}}
               inline
+              showYearDropdown
             />
           </div>
         </div>

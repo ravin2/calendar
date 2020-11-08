@@ -32,9 +32,7 @@ const LoginPage = (props) => {
       alert("Password is required");
       return;
     }
-
-    dispatch(signin({ email, password }));
-
+    dispatch(signin({ 'email': email, 'password': password }));
   }
 
 
@@ -92,8 +90,7 @@ const LoginPage = (props) => {
           </div>
         </div>     
     </Layout>
-   )
-
+  )
  }
 
 export default LoginPage

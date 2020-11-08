@@ -217,7 +217,7 @@
 import React, { useState } from "react";
 import './popup.scss';
 import Form from 'react-bootstrap/Form';
-import format from 'date-fns/format'
+// import format from 'date-fns/format'
 import Basic from '../../Email'
 // import SearchLocationInput from '../../Gplace'
 import DatePicker from "react-datepicker";
@@ -232,15 +232,17 @@ const PopUp = (props) => {
         var addPlan = true;
         var link = 'https://video.stringmatrix.com/' + Math.random().toString(36).substring(7);
         var titlee = ''
+        var startTimeing = new Date(props.data.start);
+        var endTimeing = new Date(props.data.end).setHours(new Date(props.data.end).getHours() + 24);
+
     } else {
         addPlan = false;
         link = props.data.videoLink;
         titlee = props.data.title;
+        startTimeing = new Date(props.data.start);
+        endTimeing = new Date(props.data.end);
     }
-    var startTimeing = new Date(props.data.start);
-    var endTimeing = new Date(props.data.end).setHours(new Date(props.data.end).getHours() + 24);
-    console.log(startTimeing, endTimeing)
-
+   
     const [startTime, onStartTimeChange] = useState(startTimeing);
     const [endTime, onEndTimeChange] = useState(endTimeing);
     const [description, onDescriptionChange] = useState(props.data.description);
@@ -283,16 +285,15 @@ const PopUp = (props) => {
     function handleDescription() {
         setAddDescription(!addDescription);
     }
-    const style = {
-        'maxWidth': '420px',
-        "maxHeight": '180px',
-        'marginBottom': '20px',
-        'borderRadius': '15px',
-        'padding': '10px',
-        'borderColor': 'lightgrey'
-    }
+    // const style = {
+    //     'maxWidth': '420px',
+    //     "maxHeight": '180px',
+    //     'marginBottom': '20px',
+    //     'borderRadius': '15px',
+    //     'padding': '10px',
+    //     'borderColor': 'lightgrey'
+    // }
 
-    console.log()
 
   return (
    <div className="calenderpopup">
@@ -387,7 +388,6 @@ const PopUp = (props) => {
                         <span>
                             <ReactQuill value={description || ''}
                                 onChange={event => {
-                                        console.log()
                                         onDescriptionChange(event)}}
                             /> 
                         </span>

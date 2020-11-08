@@ -264,3 +264,19 @@
     font-size: 24px;
     font-weight: 600;
 }
+.react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow, .react-datepicker__month-year-read-view--down-arrow  {
+    border-top-color: black !important;
+    float: right;
+    margin-left: 24px;
+    top: 6px;
+    position: relative;
+    border-width: 0.45rem;
+}
+.react-datepicker__year-dropdown, .react-datepicker__month-dropdown, .react-datepicker__month-year-dropdown{
+        background-color: lightcyan !important;
+}
+.react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected, .react-datepicker__year-text--keyboard-selected {
+    border-radius: 0.3rem;
+    background-color: white;
+    color: black;
+}
