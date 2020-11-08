@@ -14,13 +14,13 @@ const Header = (props) => {
   const auth = useSelector(state => state.auth);
   const dispatch = useDispatch();
   const [popUp, onPopUp] = useState(false)
-
   // const logout = () => {
   //   dispatch(logout())
   // }
   function showPopUp  () {
     onPopUp(!popUp)
   }
+  console.log(auth,'header')
 
   return(
         <div>
@@ -31,7 +31,7 @@ const Header = (props) => {
           popUp ? 
             <div className="logout-popup">
               <Link to={'#'} onClick={() => {
-                            dispatch(logout(auth.uid))
+                            dispatch(logout(auth.emailid))
               }}>Logout</Link>
             </div> : null
           }

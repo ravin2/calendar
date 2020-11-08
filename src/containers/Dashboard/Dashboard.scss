@@ -80,9 +80,6 @@
 .popup-date{
     font-size: 20px;
     font-weight: 500;
-    padding-bottom: 12px;
-    border-bottom: 1px solid;
-    margin-bottom: 20px;
 }
 .Plan-label{
      text-align: center;
@@ -129,13 +126,23 @@
 }
 .starttimepicker{
     float: right;
-    width: 310px;
+    width: 100%;
+    border-bottom: 1px solid black;
+    input {
+        
+        border: none;
+        width: 100%;
+        font-size: 24px;
+        color: grey;
+        margin-bottom: 2px;
+        padding-left: 25px;
+    }
 }
 
 .starttime{
     height: 55px;
     padding-top: 10px;
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
 }
 
 .endtime{
@@ -155,13 +162,13 @@
 }
 
 .rbc-month-view {
-    width: 98% !important;
-    margin-left: 1%!important;
+    width: 70% !important;
+    margin-left:28%!important;
 }
 
 .rbc-time-view {
-    width: 98% !important;
-    margin-left: 1% !important;
+    width: 70% !important;
+    margin-left: 28% !important;
 }
 
 .rbc-toolbar{
@@ -197,13 +204,79 @@
 
 .mini-calender{
     position: absolute;
-    height: 100%;
+    // height: auto;
     top: 80px;
-    width: 300px;
-    margin-left: 9px;
+    // width: 300px;
+    // margin-left: 9px;
     width: 28%;
-    background-color: lightsalmon;
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.calendar-col{
+    width: 243px;
+    margin: auto !important;
+    .react-datepicker__header {
+        text-align: center;
+        background-color:  lightcyan !important;
+        border-bottom: 1px solid #aeaeae;
+        border-top-left-radius: 0.3rem;
+        padding-top: 8px;
+        position: relative;
+    }
+    .react-datepicker__day--selected{
+        background-color: lightcyan !important;
+        color: black !important;
+    }
+    .react-datepicker__navigation--previous {
+        left: 10px;
+        border-right-color: black !important;
+    }
+    .react-datepicker__navigation--next {
+        right: 10px !important;
+        border-left-color: black !important;
+    }
 }
 .rbc-header {
     z-index: 1 !important;
+}
+.rbc-date-cell{
+    text-align: center !important;
+}
+.bt {
+    width: 250px;
+    margin: auto !important;
+}
+
+.bt > .btn{
+    width: 115px !important;
+    background: lightcyan !important;
+    color: black !important;
+    border: none !important;
+    border-radius: 17px !important;
+    margin: 5px !important;
+    margin-bottom: 50px !important;
+    margin-top: 30px !important;
+}
+
+
+.taskheading{
+    font-size: 24px;
+    font-weight: 600;
+}
+.react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow, .react-datepicker__month-year-read-view--down-arrow  {
+    border-top-color: black !important;
+    float: right;
+    margin-left: 24px;
+    top: 6px;
+    position: relative;
+    border-width: 0.45rem;
+}
+.react-datepicker__year-dropdown, .react-datepicker__month-dropdown, .react-datepicker__month-year-dropdown{
+        background-color: lightcyan !important;
+}
+.react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected, .react-datepicker__year-text--keyboard-selected {
+    border-radius: 0.3rem;
+    background-color: white;
+    color: black;
 }

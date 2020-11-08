@@ -45,17 +45,17 @@
 }
 
 .card2 {
-    padding-left: 60px;
-    padding-right: 60px;
-    padding-top: 30px;
-    width: 30%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 3%;
+    width: 35%;
     float: right;
     background-color: #ffffff;
-    height: auto;
-    margin-top: 60px;
+    min-height: 100%;
+    /* margin-top: 60px;
     margin-right: 50px;
-    border-radius: 20px;
-    padding-bottom: 20px;
+    border-radius: 20px; */
+    /* padding-bottom: 20px; */
 }
 
 

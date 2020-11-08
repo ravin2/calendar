@@ -19,13 +19,12 @@ const Layout = (props) => {
         backgroundSize: 'cover',
     }
   } else {
-      console.log(props.children.props.className, 'signup')
     style = {
         background: `url(${signUpImage}) no-repeat center center fixed #000`,
         WebkitBackgroundsize: 'cover',
         MozBackgroundSize: 'cover',
         OBackgroundSize: 'cover',
-        BackgroundSize: 'cover',
+        backgroundSize: 'cover',
     }
   }
   

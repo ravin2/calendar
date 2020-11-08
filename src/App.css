@@ -28,3 +28,10 @@ a{
   margin: 0px ;
   padding: 0px;
 }
+
+button:active {
+  outline: none !important;
+}
+button:focus {
+  outline: none !important;
+}
