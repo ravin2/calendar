@@ -175,10 +175,9 @@ export const signup = (user) => {
 
         dispatch({type: `${authConstanst.USER_LOGIN}_REQUEST`});
         
-        axios.post('/logon', user )
+        axios.post('/signup', user )
                 .then( res => {
                     const response = res.data.DATA
-                    console.log(response, user)
                     if( response === 'user account created') {
                         db.collection('users')
                         .doc(user.email_id)
@@ -187,14 +186,14 @@ export const signup = (user) => {
                             lastName: user.last_name,
                             emailid: user.email_id,
                             createdAt: new Date(),
-                            isOnline: true
+                            
                         })
                         .then(() => {
                             //succeful
                             const loggedInUser = {
                                 firstName: user.first_name,
                                 lastName: user.last_name,
-                                emailid: user.email,
+                                emailid: user.email_id,
                             }
                             localStorage.setItem('user', JSON.stringify(loggedInUser));
                             dispatch({
@@ -229,7 +228,6 @@ export const signin = (user) => {
         axios.post('/login', user )
             .then( res => {
                 const response = res.data.DATA[0]
-                console.log(res,response);
                     if (typeof response === 'object') {
                         const loggedInUser = {
                         firstName: response.first_name,

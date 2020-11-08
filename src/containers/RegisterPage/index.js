@@ -19,8 +19,7 @@ const RegisterPage = (props) => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [mobile] = useState('9999999999');
-  const [username] = useState('opopopopopop');
+
 
 
   const dispatch = useDispatch();
@@ -32,10 +31,8 @@ const RegisterPage = (props) => {
     e.preventDefault();
 
     const user = {
-      "user_name": username ,
       "first_name":firstName,
       "last_name": lastName,
-      "mobile": mobile,
       "email_id":email,
       "password_token": password
     }    

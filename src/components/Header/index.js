@@ -20,7 +20,6 @@ const Header = (props) => {
   function showPopUp  () {
     onPopUp(!popUp)
   }
-  console.log(auth,'header')
 
   return(
         <div>
