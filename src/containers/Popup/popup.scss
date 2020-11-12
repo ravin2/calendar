@@ -23,22 +23,25 @@
     background-color: white;
     width: 560px;
     min-height: auto;
-    border-radius: 10px;
     margin: 0px auto;
     padding-bottom: 45px;
     margin-bottom: 20px;
+    box-shadow: 7px 7px 6px 1px #ccc;
+
 }
 .form-content{
     padding: 20px;
 }
 
 .popup-header{
-    background-color: lightcyan;
+    background-color: #e3f6f5;
     padding: 15px;
+    box-shadow: 7px 7px 6px 1px #ccc;
+
 }
 .plan-button-popup > div >  button {
-    background-color:  lightcyan;
-    color: black;
+    background-color:  #e3f6f5;
+    color: #10375c !important;
     border-radius: 5px;
     height: 40px;
     width: 90px;
@@ -48,6 +51,7 @@
     border: none;
     margin-left: 10px;
     margin-right: 10px;
+    box-shadow: 7px 7px 6px 1px #ccc;    
 }
 .plan-button-popup {
     float: right;
@@ -144,8 +148,8 @@
 }
 
 .react-multi-email [data-tag] {
-    background-color: lightcyan !important;
-    color: black !important;
+    background-color: #e3f6f5 !important;
+    color: #10375c !important;
 }
 .Event{
     margin-top: 10px;
@@ -158,6 +162,7 @@
         border: none;
         width: 250px;
         text-align: center;
+        color: #10375c;
     }
 }
 .timeright{
@@ -167,6 +172,8 @@
         border: none;
         width: 250px;
         text-align: center;
+        color: #10375c;
+
     }
 }
 
@@ -176,7 +183,7 @@
 }
 
 .react-multi-email > span[data-placeholder] {
-   color: #000 !important;
+   color:  #10375c !important;
    font-weight: 700;
 }
 
@@ -191,4 +198,10 @@
 }
 .ql-container.ql-snow {
     border: none !important;
+}
+.react-multi-email > input {
+    color: #10375c !important;
+}
+.guest{
+    padding-top: 4px !important;
 }

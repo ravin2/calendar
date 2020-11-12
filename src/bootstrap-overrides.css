@@ -40,9 +40,15 @@ label {
 }
 
 .rbc-today {
-    background-color: lightcyan !important;
+    background-color: #10375c !important;
+    opacity: 0.8 !important;
+    color: white;
 }
 
 .rbc-current{
     /* color: white!important; */
+}
+.rbc-date-cell.rbc-now {
+    font-weight: bold !important;
+    color: white !important;
 }

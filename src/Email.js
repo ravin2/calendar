@@ -43,7 +43,7 @@ class Basic extends React.Component<IProps, IState> {
           />
           <br />
            <span style={{ position:'relative', top: '-56px', left: '-5px' }}>
-                                        <Image className="icon" src={require('./ASSETS/at.png')} fluid />   
+                                        <Image className="icon" src={require('./ASSETS/guest-icon.png')} fluid />   
           </span>
       </>
     );

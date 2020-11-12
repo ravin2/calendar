@@ -76,6 +76,7 @@
     padding-bottom: 15px;
     font-weight: 700;
     font-size: 1.25em;
+    vertical-align: middle;
 }
 .popup-date{
     font-size: 20px;
@@ -133,9 +134,12 @@
         border: none;
         width: 100%;
         font-size: 24px;
-        color: grey;
+        color: #10375c !important;
         margin-bottom: 2px;
         padding-left: 25px;
+    }
+    input::placeholder {
+        color: #10375c !important;
     }
 }
 
@@ -153,31 +157,34 @@
 }
 
 .rbc-event{
-    background-color: lightcyan !important;
+    background-color: #29de92 !important;
+    opacity: 0.8;
     color: currentColor !important;
 }
-.calender-dashboard{
-//   background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,233,223,1) 100%); 
-  padding-bottom: 100px;
-}
+
 
 .rbc-month-view {
-    width: 70% !important;
+    width: 72% !important;
     margin-left:28%!important;
+    border-left: 4px solid #f6f6f6 !important;
 }
 
 .rbc-time-view {
-    width: 70% !important;
+    width: 72% !important;
     margin-left: 28% !important;
+    border-left: 4px solid #f6f6f6 !important;
+
 }
 
 .rbc-toolbar{
 //    height: 70px !important;
-   background-color: lightcyan;
-   margin-bottom: 20px;
+   background-color: #e3f6f5 !important;
+//    margin-bottom: 20px;
    display: inline-block !important;
    width: 80%;
    text-align: center !important;
+   color: #10375c !important;
+
 }
 
 
@@ -194,6 +201,8 @@
     border: none !important;
     border-radius: 20px !important;
     margin-right: 10px !important;
+    color: #10375c !important;
+
 }
 
 // .rbc-btn-group-right {
@@ -218,23 +227,30 @@
     margin: auto !important;
     .react-datepicker__header {
         text-align: center;
-        background-color:  lightcyan !important;
+        background-color:  #e3f6f5 !important;
         border-bottom: 1px solid #aeaeae;
         border-top-left-radius: 0.3rem;
         padding-top: 8px;
         position: relative;
     }
     .react-datepicker__day--selected{
-        background-color: lightcyan !important;
-        color: black !important;
+        background-color: #e3f6f5 !important;
+        color: #10375c !important;
     }
     .react-datepicker__navigation--previous {
         left: 10px;
-        border-right-color: black !important;
+        border-right-color: #10375c !important;
+        box-shadow: none;
     }
     .react-datepicker__navigation--next {
         right: 10px !important;
-        border-left-color: black !important;
+        border-left-color: #10375c !important;
+        box-shadow: none;
+    }
+    .react-datepicker__year-dropdown-container--select, .react-datepicker__month-dropdown-container--select, .react-datepicker__month-year-dropdown-container--select, .react-datepicker__year-dropdown-container--scroll, .react-datepicker__month-dropdown-container--scroll, .react-datepicker__month-year-dropdown-container--scroll {
+        display: inline-block;
+        margin: 0 2px;
+        // box-shadow: 7px 7px 6px 1px #ccc;
     }
 }
 .rbc-header {
@@ -250,13 +266,22 @@
 
 .bt > .btn{
     width: 115px !important;
-    background: lightcyan !important;
-    color: black !important;
+    background: #e3f6f5 !important;
     border: none !important;
     border-radius: 17px !important;
     margin: 5px !important;
     margin-bottom: 50px !important;
     margin-top: 30px !important;
+    color: #10375c !important;
+    box-shadow: 7px 7px 6px 1px #ccc;
+}
+// .btn:active {
+//         outline: none !important;
+//         box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.525) !important;
+// }
+.btn:focus {
+    outline: none !important;
+        box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.525) !important;
 }
 
 
@@ -265,7 +290,7 @@
     font-weight: 600;
 }
 .react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow, .react-datepicker__month-year-read-view--down-arrow  {
-    border-top-color: black !important;
+    border-top-color: #10375c !important;
     float: right;
     margin-left: 24px;
     top: 6px;
@@ -273,10 +298,75 @@
     border-width: 0.45rem;
 }
 .react-datepicker__year-dropdown, .react-datepicker__month-dropdown, .react-datepicker__month-year-dropdown{
-        background-color: lightcyan !important;
+        background-color: #e3f6f5 !important;
 }
 .react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected, .react-datepicker__year-text--keyboard-selected {
     border-radius: 0.3rem;
     background-color: white;
-    color: black;
+    color: #10375c !important;
+}
+.rbc-header{
+    border-bottom: none !important;
+}
+.react-datepicker__current-month, .react-datepicker-time__header, .react-datepicker-year-header {
+    margin-top: 0;
+    color: #10375c !important;
+    font-weight: bold;
+    font-size: 0.944rem;
+}
+.react-datepicker__year-read-view--selected-year{
+    color: #10375c !important;
+}
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
+    color: #10375c !important;
+}
+.schedular-date {
+    margin-left: -40px;
+    font-size: 31px;
+    margin-right: 10px;
+    vertical-align: bottom;
+}
+.react-datepicker{
+    box-shadow: 7px 7px 6px 1px #ccc;
+    border: none;
+}
+.rbc-day-bg {
+    flex: 1 0;
+    box-shadow: 14px 7px 15px 0px #ccc;
+    margin-bottom: 3px;
+    margin-top: 0px;
+}
+.rbc-time-column .rbc-timeslot-group {
+    flex: 1 1;
+    box-shadow: 7px 7px 6px 1px #ccc;
+}
+.rbc-timeslot-group {
+     border-bottom: none !important;
+    min-height: 40px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+@media only screen and (max-width: 990px) and (min-width: 100px) {
+    .mini-calender{
+        display: none;
+    }
+    .rbc-month-view {
+        width: 100% !important;
+        margin-left:0%!important;
+        border-left: 4px solid #f6f6f6 !important;
+    }
+    
+    .rbc-time-view {
+        width: 100% !important;
+        margin-left: 0% !important;
+    }
+}
+ .react-datepicker__day, .react-datepicker__time-name {
+    color: #000;
+    display: inline-block;
+    width: 1.7rem;
+    line-height: 1.7rem;
+    text-align: center;
+    margin: 0.166rem;
+    box-shadow: 7px 7px 6px 1px #ccc;
 }

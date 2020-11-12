@@ -691,12 +691,14 @@ function Dashboard () {
             defaultView="month"
             views={['month', 'day', 'week',]}
             events={events}
-            style={{ height: "89vh" }}
+            style={{ height: "100vh" }}
             onSelectEvent={ (evt) => { togglePop(evt);} }
             selectable={true}
             onSelectSlot={ (evt) => { togglePop(evt)} }
             popup={true}
             selected = {startDate}
+            step={60}
+            timeslots={1}
             onNavigate = {(evt) => { setStartDate(evt)}}
             components={
               {
@@ -709,7 +711,8 @@ function Dashboard () {
         <div className="mini-calender">
           
           <div className="bt">
-            <Image  src={require('../../ASSETS/at2.png')} fluid />   
+            <Image  src={require('../../ASSETS/calendar-icon.png')} fluid />
+            <span className="schedular-date">31 </span>  
             <span className="taskheading"> Task Schedular </span>
             <button className="btn" type="button" onClick={() => {setStartDate(new Date())}}>Today</button>
             <button className="btn" type="button" onClick={() => {togglePop({start:startDate,end:startDate})}}>Schedule +</button>

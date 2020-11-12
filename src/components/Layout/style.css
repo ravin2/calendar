@@ -57,7 +57,21 @@
     border-radius: 20px; */
     /* padding-bottom: 20px; */
 }
-
+@media only screen and (max-width: 920px) and (min-width: 100px) {
+    .card2 {
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 3%;
+        width: 100%;
+        float: right;
+        background-color: #ffffff;
+        min-height: 100%;
+        
+    }
+    .image-overlay {
+        display: none;
+    }
+}
 
 
 /* @media only screen and (max-width: 1322px) and (min-width: 900px){

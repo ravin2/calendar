@@ -336,7 +336,7 @@ const PopUp = (props) => {
                                     timeCaption="Hour"
                             />
                             <span style={{ position:'relative', top: '-25px', left: '-5px' }}>
-                                        <Image className="icon" src={require('../../ASSETS/at.png')} fluid />   
+                                        <Image className="icon" src={require('../../ASSETS/clock-icon.png')} fluid />   
                             </span>
                             
                         </span>
@@ -358,7 +358,7 @@ const PopUp = (props) => {
                             />
                         </span>
                     </div>                        
-                    <div className="starttime">
+                    <div className="starttime guest">
                         <Basic onTitleChange={handleTitleChange} emails={emails}/>
                     </div>
                     
@@ -382,7 +382,7 @@ const PopUp = (props) => {
                     </div>
                     <div className="Event">
                             <span style={{ position:'relative', top: '0px', left: '-5px' }}>
-                                        <Image className="icon" src={require('../../ASSETS/at.png')} fluid />   
+                                        <Image className="icon" src={require('../../ASSETS/attachment-icon.png')} fluid />   
                             </span>
                         { addDescription ? 
                         <span>

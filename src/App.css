@@ -5,6 +5,7 @@
 
 body{
   font-family: 'Montserrat', sans-serif;
+  color: #10375c !important;
 }
 
 ul{
@@ -34,4 +35,10 @@ button:active {
 }
 button:focus {
   outline: none !important;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.525);
+
+}
+button {
+  box-shadow: 7px 7px 6px 1px #ccc;
+
 }
