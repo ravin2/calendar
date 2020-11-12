@@ -158,8 +158,8 @@
 
 .rbc-event{
     background-color: #29de92 !important;
-    opacity: 0.8;
-    color: currentColor !important;
+    opacity: 0.9;
+    color: #10375c !important;
 }
 
 
@@ -370,4 +370,17 @@
     text-align: center;
     margin: 0.166rem;
     box-shadow: 7px 7px 6px 1px #ccc;
+}
+
+.rbc-show-more {
+    background-color: transparent !important;
+    z-index: 4;
+    font-weight: bold;
+    color: white;
+    font-size: 85%;
+    height: auto;
+    line-height: normal;
+    a:hover {
+        color: white !important;
+    }
 }
