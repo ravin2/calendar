@@ -47,5 +47,17 @@
     background-color: #e3f6f5 !important;
     /* margin-bottom: 20px; */
     padding-top: 15px;
-    height: 70px;
+    min-height: 70px;
+}
+@media only screen and (max-width: 990px) and (min-width: 100px) {
+    .rbc-label{
+        display: block;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    .profile{
+        float: right;
+        width: 10%;
+        padding-right: 2%;
+    }
 }
