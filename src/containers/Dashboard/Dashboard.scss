@@ -288,6 +288,7 @@
 .taskheading{
     font-size: 24px;
     font-weight: 600;
+    vertical-align: middle;
 }
 .react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow, .react-datepicker__month-year-read-view--down-arrow  {
     border-top-color: #10375c !important;
@@ -321,9 +322,9 @@
     color: #10375c !important;
 }
 .schedular-date {
-    margin-left: -40px;
+    margin-left: -45px;
     font-size: 31px;
-    margin-right: 10px;
+    margin-right: 30px;
     vertical-align: bottom;
 }
 .react-datepicker{

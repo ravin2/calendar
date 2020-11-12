@@ -712,7 +712,7 @@ function Dashboard () {
           
           <div className="bt">
             <Image  src={require('../../ASSETS/calendar-icon.png')} fluid />
-            <span className="schedular-date">31 </span>  
+            <span className="schedular-date">{startDate.getDate()}</span>  
             <span className="taskheading"> Task Schedular </span>
             <button className="btn" type="button" onClick={() => {setStartDate(new Date())}}>Today</button>
             <button className="btn" type="button" onClick={() => {togglePop({start:startDate,end:startDate})}}>Schedule +</button>
