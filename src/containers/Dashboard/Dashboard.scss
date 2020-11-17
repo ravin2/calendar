@@ -75,7 +75,7 @@
     border-bottom: 1px solid ;
     padding-bottom: 15px;
     font-weight: 700;
-    font-size: 1.25em;
+    // font-size: 1.25em;
     vertical-align: middle;
 }
 .popup-date{
@@ -273,7 +273,7 @@
     margin-bottom: 50px !important;
     margin-top: 30px !important;
     color: #10375c !important;
-    box-shadow: 7px 7px 6px 1px #ccc;
+    // box-shadow: 7px 7px 6px 1px #ccc;
 }
 // .btn:active {
 //         outline: none !important;
@@ -286,7 +286,7 @@
 
 
 .taskheading{
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 600;
     vertical-align: middle;
 }
@@ -328,21 +328,21 @@
     vertical-align: bottom;
 }
 .react-datepicker{
-    box-shadow: 7px 7px 6px 1px #ccc;
+    // box-shadow: 7px 7px 6px 1px #ccc;
     border: none;
 }
 .rbc-day-bg {
     flex: 1 0;
-    box-shadow: 14px 7px 15px 0px #ccc;
-    margin-bottom: 3px;
+    // box-shadow: 14px 7px 15px 0px #ccc;
+    // margin-bottom: 3px;
     margin-top: 0px;
 }
 .rbc-time-column .rbc-timeslot-group {
     flex: 1 1;
-    box-shadow: 7px 7px 6px 1px #ccc;
+    // box-shadow: 7px 7px 6px 1px #ccc;
 }
 .rbc-timeslot-group {
-     border-bottom: none !important;
+    //  border-bottom: none !important;
     min-height: 40px;
     display: flex;
     flex-flow: column nowrap;
@@ -369,7 +369,7 @@
     line-height: 1.7rem;
     text-align: center;
     margin: 0.166rem;
-    box-shadow: 7px 7px 6px 1px #ccc;
+    // box-shadow: 7px 7px 6px 1px #ccc;
 }
 
 .rbc-show-more {

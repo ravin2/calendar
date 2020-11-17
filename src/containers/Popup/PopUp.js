@@ -242,7 +242,6 @@ const PopUp = (props) => {
         startTimeing = new Date(props.data.start);
         endTimeing = new Date(props.data.end);
     }
-   
     const [startTime, onStartTimeChange] = useState(startTimeing);
     const [endTime, onEndTimeChange] = useState(endTimeing);
     const [description, onDescriptionChange] = useState(props.data.description);

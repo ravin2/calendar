@@ -559,7 +559,6 @@ function Dashboard () {
              element.start = parseISO(element.start)
             element.end = parseISO(element.end)
           });
-          console.log(data,'list')
           setEvents(data);
         }
     }
@@ -604,7 +603,6 @@ function Dashboard () {
         message: "Hello World",
         user: auth.firstName
       }
-    console.log(evt, element, 'email')
 
     axios.post('/getDetails', emailBody )
         .then( response => {
@@ -649,7 +647,6 @@ function Dashboard () {
         message: "Hello World",
         user: auth.firstName
       }
-    console.log(evt, element, 'email')
 
     axios.post('/getDetails', emailBody )
         .then( response => {
@@ -715,14 +712,14 @@ function Dashboard () {
             <span className="schedular-date">{startDate.getDate()}</span>  
             <span className="taskheading"> Task Schedular </span>
             <button className="btn" type="button" onClick={() => {setStartDate(new Date())}}>Today</button>
-            <button className="btn" type="button" onClick={() => {togglePop({start:startDate,end:startDate})}}>Schedule +</button>
+            <button className="btn" type="button" onClick={() => {togglePop({start:startDate,end:startDate, action:'click'})}}>Schedule +</button>
           </div>
           
           <div className="calendar-col">
             <DatePicker
               selected={startDate}
               onChange={
-                date =>  { setStartDate(date); console.log(date)}}
+                date =>  { setStartDate(date);}}
               inline
               showYearDropdown
             />
