@@ -554,8 +554,8 @@ function Dashboard () {
       .then( res => {
           let  data = res.data['All Events'];
           data.map((element) => {
-                    element.start = format(new Date(element.event_start), "yyyy-MM-dd'T'HH:mm")
-                    element.end = format(new Date(element.event_end), "yyyy-MM-dd'T'HH:mm") 
+                    element.start = new Date(element.event_start)
+                    element.end = new Date(element.event_end) 
                     element.title = element.subject
                     element.description = element.meeting_desc
                     element.videoLink = element.conference_link
