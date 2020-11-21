@@ -194,6 +194,7 @@ export const signup = (user) => {
                                 firstName: user.first_name,
                                 lastName: user.last_name,
                                 emailid: user.email_id,
+                                user_id: user.user_id
                             }
                             localStorage.setItem('user', JSON.stringify(loggedInUser));
                             dispatch({
@@ -230,9 +231,10 @@ export const signin = (user) => {
                 const response = res.data.DATA[0]
                     if (typeof response === 'object') {
                         const loggedInUser = {
-                        firstName: response.first_name,
-                        lastName: response.last_name,
-                        emailid: response.email,
+                            firstName: response.first_name,
+                            lastName: response.last_name,
+                            emailid: response.email,
+                            user_id: response.user_id
                         }
 
                         localStorage.setItem('user', JSON.stringify(loggedInUser));

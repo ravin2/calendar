@@ -233,19 +233,21 @@ const PopUp = (props) => {
         var link = 'https://video.stringmatrix.com/' + Math.random().toString(36).substring(7);
         var titlee = ''
         var startTimeing = new Date(props.data.start);
-        var endTimeing = new Date(props.data.end).setHours(new Date(props.data.end).getHours() + 24);
+        var endTimeing = new Date(new Date(props.data.end).setHours(1));
 
     } else {
         addPlan = false;
         link = props.data.videoLink;
+        
         titlee = props.data.title;
         startTimeing = new Date(props.data.start);
         endTimeing = new Date(props.data.end);
+
     }
     const [startTime, onStartTimeChange] = useState(startTimeing);
     const [endTime, onEndTimeChange] = useState(endTimeing);
     const [description, onDescriptionChange] = useState(props.data.description);
-    const [videoConferencing, onVideoConferencingChange] = useState(props.data.videoCall);
+    const [videoConferencing, onVideoConferencingChange] = useState(true);
     const [emails, setEmails] = useState(props.data.contacts);
     const [title, setTitle] = useState(titlee);
     const [videoLink] = useState(link);
@@ -267,7 +269,7 @@ const PopUp = (props) => {
     } 
      async function handleUpdate(event) {
         const body = {startTime, endTime, title, description, emails, videoConferencing, videoLink, location}
-        props.update(body,props.data.id);  
+        props.update(body,props.data.event_id);  
     } 
 
     function handleTitleChange(evt) {
@@ -278,7 +280,7 @@ const PopUp = (props) => {
     // }
     
     function handleDelete() {
-        props.delete(props.data.id);
+        props.delete(props.data.event_id);
     }
 
     function handleDescription() {
@@ -365,7 +367,7 @@ const PopUp = (props) => {
                             <Form.Group controlId="formBasicCheckbox">
                                 <Form.Check type="checkbox" label="Add Video Conferencing" 
                                 value={videoConferencing} 
-                                checked={props.data.videoCall}
+                                checked={videoConferencing}
                                 onChange={event => {
                                     onVideoConferencingChange(!videoConferencing);
                                 }}

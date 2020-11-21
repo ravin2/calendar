@@ -549,18 +549,23 @@ function Dashboard () {
   );
 
   async function getDetails() {
-    if ( auth.emailid !== undefined) {
-          const cityRef =  await db.collection('users').doc(auth.emailid).collection('Events').get();
-          const data =  cityRef.docs.map(doc => doc.data());
-          if (!data) {
-            console.log('No such document!');
-          } else {
-          data.forEach((element,i) => {
-             element.start = parseISO(element.start)
-            element.end = parseISO(element.end)
+    if ( auth.user_id !== undefined) {
+      axios.get(`/getevents/${auth.user_id}` )
+      .then( res => {
+          console.log(res.data['All Events']);
+          const data = res.data['All Events'];
+          data.map((element) => {
+                    element.start = format(new Date(element.event_start), "yyyy-MM-dd'T'HH:mm")
+                    element.end = format(new Date(element.event_end), "yyyy-MM-dd'T'HH:mm") 
+                    element.title = element.subject
+                    element.description = element.meeting_desc
+                    element.videoLink = element.conference_link
           });
           setEvents(data);
-        }
+      } )
+      .catch( error => {
+          console.log('fail', error)    
+      } ); 
     }
   }
 
@@ -574,105 +579,73 @@ function Dashboard () {
   }
 
   function addEvent (evt) {
-    setSeen(false);
-    const id = Math.random().toString();
-    db.collection('users').doc(auth.emailid).collection('Events').doc(id).set(
-      {
-        name: 'Ravindra',
-        start: format(evt.startTime, "yyyy-MM-dd'T'HH:mm"),
-        end: format(evt.endTime, "yyyy-MM-dd'T'HH:mm"),
-        title: evt.title,
-        description: evt.description,
-        contacts: evt.emails,
-        videoCall: evt.videoConferencing,
-        id: id,
-        videoLink: evt.videoLink
-    })
-    .then(() => {
-        console.log('success')
-    })
-    .catch(error => {
-        console.log(error);
-    });
-    
-    evt.emails.forEach(element => {
-      const emailBody  = {
-        ids: element,
-        start_time: new Date(evt.startTime),
-        end_time:  new Date(evt.endTime),
-        message: "Hello World",
-        user: auth.firstName
-      }
-
-    axios.post('/getDetails', emailBody )
-        .then( response => {
-            console.log(response)
-        } )
-        .catch( error => {
-            console.log('fail', error)
+    const req =  {
+        user_id : auth.user_id,
+        subject: evt.title,
+        event_start: evt.startTime,
+        event_end: evt.endTime,
+        location:"House",
+        rem_flag:"1",
+        rem_timestamp: new Date(new Date(evt.startTime).setMinutes(-10)),
+        event_link: evt.videoLink,
+        participants_email_id: evt.emails,
+        event_description: evt.description
+    }
+    axios.post(`/cevent`, req )
+    .then( res => {
+        console.log(res)
+        getDetails();
+        setSeen(false);
+    } )
+    .catch( error => {
+        console.log('fail', error)    
     } ); 
-
-
-    });
-
-    getDetails();
-    setSeen(false);
-    
+   
   };
   
-  async function updateEvent (evt,id) {
-    db.collection('users').doc(auth.emailid).collection('Events').doc(id).update(
-      {
-        name: 'Ravindra',
-        start: format(evt.startTime, "yyyy-MM-dd'T'HH:mm"),
-        end: format(evt.endTime, "yyyy-MM-dd'T'HH:mm"),
-        title: evt.title,
-        description: evt.description,
-        contacts: evt.emails,
-        videoCall: evt.videoConferencing,
-        id: id,
-        videoLink: evt.videoLink
-    })
-    .then(() => {
-        console.log('success')
-    })
-    .catch(error => {
-        console.log(error);
-    });
-    evt.emails.forEach(element => {
-      const emailBody  = {
-        ids: element,
-        start_time: new Date(evt.startTime),
-        end_time:  new Date(evt.endTime),
-        message: "Hello World",
-        user: auth.firstName
-      }
+  function updateEvent (evt,id) {
+    const req =  {
+      user_id : auth.user_id,
+      subject: evt.title,
+      event_start: evt.startTime,
+      event_end: evt.endTime,
+      location:"House",
+      rem_flag:"1",
+      rem_timestamp: new Date(new Date(evt.startTime).setMinutes(-10)),
+      event_link: evt.videoLink,
+      participants_email_id: evt.emails,
+      event_description: evt.description,
+      event_id: id,
+  }
+  console.log('asdas');
 
-    axios.post('/getDetails', emailBody )
-        .then( response => {
-            console.log(response)
-        } )
-        .catch( error => {
-            console.log('fail', error)
+    axios.post(`/uevent`, req )
+    .then( res => {
+        console.log(res)
+        getDetails();
+        setSeen(false);
+    } )
+    .catch( error => {
+        console.log('fail', error)    
     } ); 
-
-
-    });
-    
-    
-    getDetails();
-    setSeen(false);
-  
   };
 
     
 
 
   async function removeTask(id) {
-    await db.collection('users').doc(auth.emailid).collection('Events').doc(id).delete().then(function() {
-    }).catch(function(error) {
-        console.error("Error removing document: ", error);
-    });
+    const req = {
+      event_id: id,
+    }
+    axios.post(`/devent`, req )
+    .then( res => {
+        console.log(res)
+        getDetails();
+        setSeen(false);
+    } )
+    .catch( error => {
+        console.log('fail', error)    
+    } ); 
     getDetails();
     setSeen(false);
   }
