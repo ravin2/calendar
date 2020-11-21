@@ -511,7 +511,6 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import axios from '../../axios-order'
 
 import { useSelector } from 'react-redux';
-import {  firestore } from 'firebase';
 import format from 'date-fns/format'
 import toolbar  from './Toolbar/Toolbar';
 import Image from 'react-bootstrap/Image'
@@ -538,7 +537,6 @@ function Dashboard () {
     const [createEvent, setCreateEvent] = useState()
     const [seen, setSeen] = useState(false)
     const auth = useSelector(state => state.auth);
-    const db = firestore();
     const [startDate, setStartDate] = useState(new Date());
 
 
@@ -552,9 +550,8 @@ function Dashboard () {
     if ( auth.user_id !== undefined) {
       axios.get(`/getevents/${auth.user_id}` )
       .then( res => {
-          console.log(res.data['All Events']);
-          const data = res.data['All Events'];
-          data.map((element) => {
+          let  data = res.data['All Events'];
+           data.map((element) => {
                     element.start = format(new Date(element.event_start), "yyyy-MM-dd'T'HH:mm")
                     element.end = format(new Date(element.event_end), "yyyy-MM-dd'T'HH:mm") 
                     element.title = element.subject
@@ -593,7 +590,6 @@ function Dashboard () {
     }
     axios.post(`/cevent`, req )
     .then( res => {
-        console.log(res)
         getDetails();
         setSeen(false);
     } )
@@ -617,11 +613,17 @@ function Dashboard () {
       event_description: evt.description,
       event_id: id,
   }
-  console.log('asdas');
 
     axios.post(`/uevent`, req )
     .then( res => {
-        console.log(res)
+        getDetails();
+        setSeen(false);
+    } )
+    .catch( error => {
+        console.log('fail', error)    
+    } ); 
+    axios.post(`/uevent`, req )
+    .then( res => {
         getDetails();
         setSeen(false);
     } )
@@ -639,7 +641,6 @@ function Dashboard () {
     }
     axios.post(`/devent`, req )
     .then( res => {
-        console.log(res)
         getDetails();
         setSeen(false);
     } )
