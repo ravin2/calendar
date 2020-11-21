@@ -538,6 +538,8 @@ function Dashboard () {
     const [seen, setSeen] = useState(false)
     const auth = useSelector(state => state.auth);
     const [startDate, setStartDate] = useState(new Date());
+    const [emails, setEmails] = useState([]);
+
 
 
         
@@ -551,7 +553,7 @@ function Dashboard () {
       axios.get(`/getevents/${auth.user_id}` )
       .then( res => {
           let  data = res.data['All Events'];
-           data.map((element) => {
+          data.map((element) => {
                     element.start = format(new Date(element.event_start), "yyyy-MM-dd'T'HH:mm")
                     element.end = format(new Date(element.event_end), "yyyy-MM-dd'T'HH:mm") 
                     element.title = element.subject
@@ -567,12 +569,29 @@ function Dashboard () {
   }
 
 
-  function togglePop (evt)  {
-    setCreateEvent(evt);
-    setSeen(true)
+  async function togglePop (evt)  {
+    await axios.get(`/getparticipants/${auth.user_id}` )
+    .then( res => {
+        const data = res.data.Participants.filter(element => element.event_id === evt.event_id)
+        data.map(element => {
+            if( element.participants_email_id !== '' && element.participants_email_id !== null ) {
+              setEmails(state => [...state, element.participants_email_id]) 
+            }
+        });
+    } )
+    .catch( error => {
+        console.log('fail', error)    
+    } ); 
+
+    await setCreateEvent(evt);
+    
+
+    await setSeen(true)
+    console.log(evt)
   };
   function togglePopClose() {
         setSeen(false);
+        setEmails([]); 
   }
 
   function addEvent (evt) {
@@ -581,11 +600,11 @@ function Dashboard () {
         subject: evt.title,
         event_start: evt.startTime,
         event_end: evt.endTime,
-        location:"House",
+        location: evt.location,
         rem_flag:"1",
         rem_timestamp: new Date(new Date(evt.startTime).setMinutes(-10)),
         event_link: evt.videoLink,
-        participants_email_id: evt.emails,
+        participants_email_id: evt.emails.join(';'),
         event_description: evt.description
     }
     axios.post(`/cevent`, req )
@@ -605,11 +624,11 @@ function Dashboard () {
       subject: evt.title,
       event_start: evt.startTime,
       event_end: evt.endTime,
-      location:"House",
+      location: evt.location,
       rem_flag:"1",
       rem_timestamp: new Date(new Date(evt.startTime).setMinutes(-10)),
       event_link: evt.videoLink,
-      participants_email_id: evt.emails,
+      participants_email_id: evt.emails.join(';'),
       event_description: evt.description,
       event_id: id,
   }
@@ -677,7 +696,7 @@ function Dashboard () {
               }
             }
           />
-          {seen ? <PopUp data = {createEvent} delete={removeTask} update={updateEvent} submit = {addEvent} toggle={togglePopClose} /> : null}
+          {seen ? <PopUp emails = {emails} data = {createEvent} delete={removeTask} update={updateEvent} submit = {addEvent} toggle={togglePopClose} /> : null}
         </div>
         <div className="mini-calender">
           

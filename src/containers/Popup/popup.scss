@@ -21,7 +21,7 @@
 }
 .popupContent{
     background-color: white;
-    width: 560px;
+    width: 515px;
     min-height: auto;
     margin: 0px auto;
     padding-bottom: 45px;
@@ -31,6 +31,7 @@
 }
 .form-content{
     padding: 20px;
+    flex-direction: column;
 }
 
 .popup-header{
@@ -176,9 +177,22 @@
     }
 }
 
+.time{
+    margin-top: 10px;;
+}
+.location-span{
+    // margin-top: -35px;
+    height: 46px;
+}
+.video-span{
+    height: 70px;
+}
 .react-multi-email{
     border: none !important;
     margin-left: 15px !important;
+    width: 600px;
+    height: 40px;
+    overflow: auto;
 }
 
 .react-multi-email > span[data-placeholder] {
@@ -203,4 +217,5 @@
 }
 .guest{
     padding-top: 6px !important;
+    height: 80px;
 }

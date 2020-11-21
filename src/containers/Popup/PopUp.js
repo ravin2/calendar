@@ -232,31 +232,33 @@ const PopUp = (props) => {
         var addPlan = true;
         var link = 'https://video.stringmatrix.com/' + Math.random().toString(36).substring(7);
         var titlee = ''
+        var locationn = ''
         var startTimeing = new Date(props.data.start);
         var endTimeing = new Date(new Date(props.data.end).setHours(1));
 
     } else {
         addPlan = false;
         link = props.data.videoLink;
-        
         titlee = props.data.title;
+        locationn = props.data.loc
         startTimeing = new Date(props.data.start);
         endTimeing = new Date(props.data.end);
-
     }
+    
     const [startTime, onStartTimeChange] = useState(startTimeing);
     const [endTime, onEndTimeChange] = useState(endTimeing);
     const [description, onDescriptionChange] = useState(props.data.description);
     const [videoConferencing, onVideoConferencingChange] = useState(true);
-    const [emails, setEmails] = useState(props.data.contacts);
+    const [emails, setEmails] = useState(props.emails);
     const [title, setTitle] = useState(titlee);
     const [videoLink] = useState(link);
-    const [location] = useState(props.data.location);
+    const [location, setLocation] = useState(locationn);
     const [addDescription , setAddDescription] = useState(props.data.description);
 
 
     function handleClick () {
         props.toggle();
+        console.log(emails)
     };
     async function handleSubmit(event) {
         if (startTime && endTime && title && description && emails && videoConferencing && videoLink) {
@@ -269,15 +271,15 @@ const PopUp = (props) => {
     } 
      async function handleUpdate(event) {
         const body = {startTime, endTime, title, description, emails, videoConferencing, videoLink, location}
-        props.update(body,props.data.event_id);  
+        props.update(body,props.data.event_id); 
     } 
 
     function handleTitleChange(evt) {
         setEmails(evt);
     }
-    // function handleLocationChange(evt) {
-    //     setLocation(evt);
-    // }
+    function handleLocationChange(evt) {
+        setLocation(evt);
+    }
     
     function handleDelete() {
         props.delete(props.data.event_id);
@@ -315,11 +317,12 @@ const PopUp = (props) => {
                                 value={title}
                                 onChange={event => {
                                     event.preventDefault();
-                                setTitle(event.target.value);}}
+                                    setTitle(event.target.value);
+                                }}
                             />
                         </span>
                     </div>
-                    <div className="starttime">
+                    <div className="time">
                         
                         <span className="timeleft">
                             <DatePicker
@@ -359,11 +362,26 @@ const PopUp = (props) => {
                             />
                         </span>
                     </div>                        
-                    <div className="starttime guest">
+                    <div className="guest">
                         <Basic onTitleChange={handleTitleChange} emails={emails}/>
                     </div>
+                    <div className="location-span">
+                        <span className="location-div">
+                            <input type="text" placeholder="Enter Location" 
+                                required
+                                value={location}
+                                onChange={event => {
+                                    event.preventDefault();
+                                    setLocation(event.target.value);
+                                }}
+                            />
+                             <span style={{ position:'relative', top: '-32px', left: '-5px' }}>
+                                        <Image className="icon" src={require('../../ASSETS/location-icon.png')} fluid />   
+                            </span>
+                        </span>
+                    </div>
                     
-                    <div className="starttime">
+                    <div className="video-span">
                             <Form.Group controlId="formBasicCheckbox">
                                 <Form.Check type="checkbox" label="Add Video Conferencing" 
                                 value={videoConferencing} 
@@ -381,6 +399,7 @@ const PopUp = (props) => {
                             }
                             </Form.Group> 
                     </div>
+                 
                     <div className="Event">
                             <span style={{ position:'relative', top: '0px', left: '-5px' }}>
                                         <Image className="icon" src={require('../../ASSETS/attachment-icon.png')} fluid />   

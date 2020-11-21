@@ -127,8 +127,29 @@
 }
 .starttimepicker{
     float: right;
+    height: 40px;
     width: 100%;
     border-bottom: 1px solid black;
+    margin-bottom: 11px;
+    input {
+        
+        border: none;
+        width: 100%;
+        font-size: 24px;
+        color: #10375c !important;
+        margin-bottom: 2px;
+        padding-left: 25px;
+    }
+    input::placeholder {
+        color: #10375c !important;
+    }
+}
+.location-div{
+    float: right;
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid black;
+    margin-bottom: 11px;
     input {
         
         border: none;
@@ -144,8 +165,8 @@
 }
 
 .starttime{
-    height: 55px;
-    padding-top: 10px;
+    min-height: 40px;
+    // padding-top: 10px;
     // margin-bottom: 15px;
 }
 
@@ -228,14 +249,14 @@
     .react-datepicker__header {
         text-align: center;
         background-color:  #e3f6f5 !important;
-        border-bottom: 1px solid #aeaeae;
+        border-bottom: none;
         border-top-left-radius: 0.3rem;
         padding-top: 8px;
         position: relative;
     }
     .react-datepicker__day--selected{
-        background-color: #e3f6f5 !important;
-        color: #10375c !important;
+        background: #10375c !important;
+        color: white !important;
     }
     .react-datepicker__navigation--previous {
         left: 10px;
@@ -251,6 +272,19 @@
         display: inline-block;
         margin: 0 2px;
         // box-shadow: 7px 7px 6px 1px #ccc;
+    }
+    .react-datepicker__day, .react-datepicker__time-name {
+        color: #000;
+        display: inline-block;
+        width: 1.7rem;
+        line-height: 1.7rem;
+        text-align: center;
+        background-color: #e3f6f5 ;
+        margin: 0.166rem;
+    }
+    .react-datepicker__day:hover {
+        background-color:#10375c !important;
+        color: white !important;
     }
 }
 .rbc-header {
@@ -286,7 +320,7 @@
 
 
 .taskheading{
-    font-size: 23px;
+    font-size: 22px;
     font-weight: 600;
     vertical-align: middle;
 }
